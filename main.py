@@ -1,25 +1,27 @@
-"""
 import os
 from threading import Thread
 from flask import Flask
 
-app = Flask('')
+# ─── سيرفر وهمي لتفادي الـ Timed out على Render ───
+app_flask = Flask('')
 
-@app.route('/')
+@app_flask.route('/')
 def home():
     return "Bot is running!"
 
 def run():
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+    app_flask.run(host='0.0.0.0', port=port)
 
 def keep_alive():
     t = Thread(target=run)
     t.start()
-بوت تليغرام لإدارة محل الكوزمتك - نسخة Render (24/7 مجاني)
-"""
 
-import os, json, logging, tempfile, io, base64
+# ═══════════════════════════════════════════════════
+# بوت تليغرام لإدارة محل الكوزمتك - نسخة Render (24/7 مجاني)
+# ═══════════════════════════════════════════════════
+
+import json, logging, tempfile, io, base64
 from datetime import datetime
 
 from google import genai
