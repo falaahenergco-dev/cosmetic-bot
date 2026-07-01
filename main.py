@@ -2,7 +2,7 @@ import os
 from threading import Thread
 from flask import Flask
 
-# ─── سيرفر وهمي لتفادي الـ Timed out على Render ───
+# ─── سيرفر وهمي لتفادي الـ Timed out على خطة Render المجانية ───
 app_flask = Flask('')
 
 @app_flask.route('/')
@@ -35,9 +35,11 @@ import openpyxl
 
 # ═══════════════════════════════════════════════════
 TELEGRAM_TOKEN       = os.environ["TELEGRAM_TOKEN"]
-GOOGLE_FILE_ID       = os.environ["GOOGLE_FILE_ID"]
 GEMINI_API_KEY       = os.environ["GEMINI_API_KEY"]
 SERVICE_ACCOUNT_JSON = os.environ["SERVICE_ACCOUNT_JSON"]
+
+# تحديث الـ ID الجديد لملف الإكسل مباشرة هنا
+GOOGLE_FILE_ID       = "1pkk4ueeJ35befqFi4_xmAHY-hlGSO_LW"
 # ═══════════════════════════════════════════════════
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s')
@@ -291,5 +293,5 @@ def main():
     app.run_polling()
 
 if __name__ == "__main__":
-    keep_alive()
+    keep_alive()  # تشغيل دالة السيرفر الوهمي في الخلفية لمنع التوقف
     main()
